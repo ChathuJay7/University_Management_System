@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sports</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+
+    <style>
+    .head{
+    color:white;
+    background-color: #66CDAA80;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    margin-bottom:30px;
+    margin: o auto;
+    }
+
+    body {
+    background-image: url("https://images.unsplash.com/photo-1635356263040-66a7acd52b61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #cccccc;
+    }
+
+    h2{
+    color:white;
+    font-weight: bold;
+    opacity: 1.0;
+    }
+
+    td{
+    background-color: #98FB98;
+    font-weight: bold;
+    }
+
+    table {
+    border: 5px solid #00FF7F;
+    opacity: 0.9;
+    }
+
+    .list {
+    background-color: black;
+    color:white;
+    border: 3px solid #00FF7F;
+    padding: 10px; width: 500px;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: bold;
+    }
+
+    .list:hover {
+    background-color: white;
+    color: black
+    }
+
+    a{
+    color: white;
+    text-decoration: none;
+    }
+
+    a:hover{
+    text-decoration: none;
+    color: black;
+    }
+
+
+    </style>
+</head>
+<body>
+<div class="container-fluid text-center">
+    <div class="head">
+        <h2>Sport List</h2>
+    </div>
+
+    <div class="table">
+        <table class="table table-boarded">
+            <thead class="thead-dark">
+            <tr>
+                <th>Sport ID</th>
+                <th>Sport Name</th>
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="sport : ${listSports}">
+                <tr>
+                    <td>[[${sport.id}]]</td>
+                    <td>[[${sport.name}]]</td>
+                </tr>
+            </th:block>
+
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
+
+<div class="container text-center" >
+    <a class="h2" th:href="@{/sports/new}">
+        <div class="p-2 list">+ Add Sport</div>
+    </a>
+    <div style="height: 10px;"></div>
+    <a class="h2" th:href="@{/}">
+        <div class="p-2 list">Home</div>
+    </a>
+</div>
+
+<div style="height: 10px;"></div>
+
+</body>
+</html>

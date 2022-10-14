@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List Students</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+
+    <style>
+    .head{
+    color:white;
+    background-color: #D2B48C80;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    margin-bottom:30px;
+    margin: o auto;
+    }
+
+    body {
+    background-image: url("https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #cccccc;
+    }
+
+    h2{
+    color:white;
+    font-weight: bold;
+    opacity: 1.0;
+    }
+
+    td{
+    background-color: #F5DEB3;
+    font-weight: bold;
+    }
+
+    table {
+    border: 5px solid #F4A460;
+    opacity: 0.9;
+    }
+
+    .list {
+    background-color: black;
+    color:white;
+    border: 3px solid #D2B48C;
+    padding: 10px; width: 500px;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: bold;
+    }
+
+    .list:hover {
+    background-color: white;
+    color: black
+    }
+
+    a{
+    color: white;
+    text-decoration: none;
+    }
+
+    a:hover{
+    text-decoration: none;
+    color: black;
+    }
+    </style>
+
+</head>
+
+<body>
+<div class="container-fluid text-center">
+    <div class="head">
+        <h2>List Students</h2>
+    </div>
+
+    <div>
+        <table class="table table-boarded">
+            <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Year</th>
+                <th>Faculty</th>
+                <th>Subjects</th>
+                <th>Sports</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="student : ${listStudents}">
+                <tr>
+                    <td>[[${student.id}]]</td>
+                    <td>[[${student.name}]]</td>
+                    <td>[[${student.year}]]</td>
+                    <td>[[${student.faculty.name}]]</td>
+                    <td>[[${student.details}]]</td>
+                    <td>[[${student.sports}]]</td>
+                    <td>
+                        <a th:href="@{'/students/edit/' + ${student.id}}" style="font-weight:bold; color: #191970;">Edit</a>
+                    </td>
+                    <td>&nbsp;
+                        <a th:href="@{'/students/delete/' + ${student.id}}" style="font-weight:bold; color: #191970;">Delete</a>
+                    </td>
+                </tr>
+            </th:block>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="container text-center" >
+    <a class="h2" th:href="@{/students/new}">
+        <div class="p-2 list">+ Add Student</div>
+    </a>
+    <div style="height: 10px;"></div>
+    <a class="h2" th:href="@{/}">
+        <div class="p-2 list">Home</div>
+    </a>
+</div>
+
+<div style="height: 10px;"></div>
+
+</body>
+</html>

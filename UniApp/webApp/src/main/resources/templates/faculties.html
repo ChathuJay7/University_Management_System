@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Faculties</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+
+    <style>
+    .head{
+    color:white;
+    background-color: #4682B480;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    margin-bottom:30px;
+    margin: o auto;
+    }
+
+    body {
+    background-image: url("https://images.unsplash.com/photo-1521587760476-6c12a4b040da?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8dW5pdmVyc2l0eXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #cccccc;
+    }
+
+    h2{
+    color:white;
+    font-weight: bold;
+    }
+
+    td{
+    background-color: #87CEFA;
+    font-weight: bold;
+    }
+
+    table {
+    border: 5px solid #1E90FF;
+    opacity: 0.9;
+    }
+
+    .list {
+    background-color: black;
+    color:white;
+    border: 3px solid #005c8a;
+    padding: 10px; width: 500px;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: bold;
+    }
+
+    .list:hover {
+    background-color: white;
+    color: black
+    }
+
+    a{
+    color: white;
+    text-decoration: none;
+    }
+
+    a:hover{
+    text-decoration: none;
+    color: black;
+    }
+
+
+    </style>
+</head>
+<body>
+<div class="container-fluid text-center">
+<div class="head">
+    <h2>Faculty List</h2>
+</div>
+
+<div class="table">
+    <table class="table table-boarded">
+        <thead class="thead-dark">
+          <tr>
+              <th>Faculty ID</th>
+              <th>Faculty Name</th>
+          </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="faculty : ${listFaculties}">
+            <tr>
+                <td>[[${faculty.id}]]</td>
+                <td>[[${faculty.name}]]</td>
+            </tr>
+        </th:block>
+
+        </tbody>
+    </table>
+
+</div>
+
+</div>
+
+<div class="container text-center" >
+    <a class="h2" th:href="@{/faculties/new}">
+        <div class="p-2 list">+ Add Faculty</div>
+    </a>
+    <div style="height: 10px;"></div>
+    <a class="h2" th:href="@{/}">
+        <div class="p-2 list">Home</div>
+    </a>
+</div>
+
+<div style="height: 10px;"></div>
+
+</body>
+</html>

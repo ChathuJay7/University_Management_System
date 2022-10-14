@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>University Management Homepage</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+
+    <style>
+    div {
+    position: relative;
+    }
+
+    .container{
+    width: 100%;
+    }
+
+    .head{
+    color:white;
+    background-color: #483D8B80;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    margin-bottom:30px;
+    margin: o auto;
+    }
+
+    h1{
+    color:white;
+    font-weight: bold;
+    }
+
+    a {
+    text-decoration: none;
+    }
+
+    a:hover {
+    text-decoration: none;
+    }
+
+    .list {
+    text-align: center;
+    }
+
+
+
+    .hyperspan {
+    position:absolute;
+    width:100%;
+    height:100%;
+    left:0;
+    top:0;
+    }
+
+    body {
+    background-image: url("https://mpng.subpng.com/20180324/skw/kisspng-university-system-of-georgia-college-student-highe-student-5ab5fc1baa3379.7027735315218759956972.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #cccccc;
+    }
+
+    .list {
+    background-color: black;
+    color:white;
+    border: 3px solid #005c8a;
+    padding: 10px; width: 500px;
+    margin: 0 auto;
+    }
+
+    .list:hover {
+    background-color: white;
+    }
+
+    .list a{
+    color: white;
+    font-weight: bold;
+    }
+
+    .list a:hover{
+    color: black;
+    }
+
+    </style>
+</head>
+<body>
+
+<div class="container text-center">
+    <div class="head"><h1>Welcome to University Management App</h1></div>
+    <div class="p-2 list">
+        <a class="h2" th:href="@{/faculties}">List Faculties<span class="hyperspan"></span></a>
+    </div>
+    <div style="height: 10px;"></div>
+    <div class="p-2 list">
+        <a class="h2" th:href="@{/faculties/new}">+ Add Faculty<span class="hyperspan"></span></a>
+    </div>
+    <div style="height: 10px;"></div>
+    <div class="p-2 list">
+        <a class="h2" th:href="@{/students}">List Students<span class="hyperspan"></span></a>
+    </div>
+    <div style="height: 10px;"></div>
+    <div class="p-2 list">
+        <a class="h2" th:href="@{/students/new}">+ Add Student<span class="hyperspan"></span></a>
+    </div>
+    <div style="height: 10px;"></div>
+    <div class="p-2 list">
+        <a class="h2" th:href="@{/deans}">List Deans<span class="hyperspan"></span></a>
+    </div>
+    <div style="height: 10px;"></div>
+    <div class="p-2 list">
+        <a class="h2" th:href="@{/deans/new}">+ Add Dean<span class="hyperspan"></span></a>
+    </div>
+
+    <div style="height: 10px;"></div>
+    <div class="p-2 list">
+        <a class="h2" th:href="@{/sports}">List Sports<span class="hyperspan"></span></a>
+    </div>
+    <div style="height: 10px;"></div>
+    <div class="p-2 list">
+        <a class="h2" th:href="@{/sports/new}">+ Add Sport<span class="hyperspan"></span></a>
+    </div>
+    <div style="height: 20px;"></div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Brands</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+
+    <style>
+    .head{
+    color:white;
+    background-color: #DC143C80;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    margin-bottom:30px;
+    margin: o auto;
+    }
+
+    body {
+    background-image: url("https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #cccccc;
+    }
+
+    h2{
+    color:white;
+    font-weight: bold;
+    opacity: 1.0;
+    }
+
+    td{
+    background-color: #FFC0CB;
+    font-weight: bold;
+    }
+
+    table {
+    border: 5px solid #C71585;
+    opacity: 0.9;
+    }
+
+    .list {
+    background-color: black;
+    color:white;
+    border: 3px solid #C71585;
+    padding: 10px; width: 500px;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: bold;
+    }
+
+    .list:hover {
+    background-color: white;
+    color: black
+    }
+
+    a{
+    color: white;
+    text-decoration: none;
+    }
+
+    a:hover{
+    text-decoration: none;
+    color: black;
+    }
+    </style>
+
+</head>
+<body>
+<div class="container-fluid text-center">
+    <div class="head">
+        <h2>Dean List</h2>
+    </div>
+
+    <div>
+        <table class="table table-boarded">
+            <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Faculties</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="dean : ${listDeans}">
+                <tr>
+                    <td>[[${dean.id}]]</td>
+                    <td>[[${dean.name}]]</td>
+                    <td>[[${dean.faculty.name}]]</td>
+
+                    <td>
+                        <a style="font-weight:bold; color: #191970;" th:href="@{'/deans/edit/' + ${dean.id}}">Edit</a>
+                    </td>
+                </tr>
+            </th:block>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="container text-center" >
+    <a class="h2" th:href="@{/deans/new}">
+        <div class="p-2 list">+ Add Dean</div>
+    </a>
+    <div style="height: 10px;"></div>
+    <a class="h2" th:href="@{/}">
+        <div class="p-2 list">Home</div>
+    </a>
+</div>
+
+<div style="height: 10px;"></div>
+
+</body>
+</html>

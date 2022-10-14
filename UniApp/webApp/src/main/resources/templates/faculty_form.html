@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Add New Faculty</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+
+    <style>
+    .head{
+    color:white;
+    background-color: #4682B480;
+    width: 100%;
+    opacity: 0.8;
+    padding: 10px;
+    text-align: center;
+    margin-bottom:30px;
+    margin: o auto;
+    }
+
+    body {
+    background-image: url("https://images.unsplash.com/photo-1521587760476-6c12a4b040da?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8dW5pdmVyc2l0eXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #cccccc;
+    }
+
+    h2{
+    color:white;
+    font-weight: bold;
+    }
+
+    form {
+    margin: 0 auto;
+    width:800px;
+    border: 5px solid #1E90FF;
+    background-color: #87CEFA;
+    margin-bottom: 20px;
+    opacity: 0.9;
+    }
+
+
+    .list {
+    background-color: black;
+    color:white;
+    border: 3px solid #005c8a;
+    padding: 10px; width: 500px;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: bold;
+    }
+
+    .list:hover {
+    background-color: white;
+    color: black
+    }
+
+    a{
+    color: white;
+    text-decoration: none;
+    }
+
+    a:hover{
+    text-decoration: none;
+    color: black;
+    }
+
+    </style>
+
+</head>
+
+<body>
+<div class="container-fluid text-center content">
+    <div class="head"><h2>Add New Faculty</h2></div>
+
+    <form th:action="@{/faculties/save}" method="post" th:object="${faculty}" >
+       <!-- <input type="hidden" th:field="*{id}" /> -->
+        <div class="border border-secondary rounded p-3">
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label" style="font-weight: bold;">Faculty Name:</label>
+                <div class="col-sm-8">
+                    <input type="text" th:field="*{name}" class="form-control" required minlength="5" maxlength="45" />
+                </div>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary m-2">Save</button>
+                <button type="button" class="btn btn-secondary m-2" onclick="cancelForm()">Cancel</button>
+            </div>
+        </div>
+
+    </form>
+
+    <div class="container text-center" >
+        <a class="h2" th:href="@{/faculties}">
+            <div class="p-2 list">Faculties</div>
+        </a>
+        <div style="height: 10px;"></div>
+        <a class="h2" th:href="@{/}">
+            <div class="p-2 list">Home</div>
+        </a>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    function cancelForm() {
+      window.location = "[[@{/faculties}]]";
+    }
+</script>
+
+<div style="height: 10px;"></div>
+
+</body>
+</html>
